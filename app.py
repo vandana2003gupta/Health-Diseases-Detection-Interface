@@ -72,9 +72,9 @@ except Exception as e:
 # Sidebar
 with st.sidebar:
     selected = option_menu('Diseases',
-                         ['Welcome', 'Autism', 'Diabetes Detection',
-                          'Heart Disease Detection', 'Parkinsons Detection',
-                          'Yoga Posture Corrector', 'Feedback'],
+                         ['Welcome', 'Autism', 'Diabetes',
+                          'Heart Disease', 'Parkinsons',
+                          'Yoga Posture', 'Feedback'],
                          default_index=0)
 
 # Welcome Page
