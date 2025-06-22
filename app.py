@@ -59,11 +59,11 @@ st.markdown("""
 
 # Load Models
 try:
-    with open('Diseases/Heart-Disease-Prediction/heart.pkl', 'rb') as file:
+    with open('Diseases/Heart-Disease-Detection/heart.pkl', 'rb') as file:
         heart_model = pickle.load(file)
-    with open('Diseases/Diabetes-Prediction-EDA/diabetes.pkl', 'rb') as file:
+    with open('Diseases/Diabetes-Detection/diabetes.pkl', 'rb') as file:
         diabetes_model = pickle.load(file)
-    with open('Diseases/Parkinson-Disease-EDA-and-Prediction/Parkinsons.pkl', 'rb') as file:
+    with open('Diseases/Parkinson-Disease-Detection/Parkinsons.pkl', 'rb') as file:
         parkinsons_model = pickle.load(file)
 except Exception as e:
     st.error(f"Error loading models: {str(e)}")
@@ -203,7 +203,7 @@ elif selected == 'Parkinsons Detection':
                 rpde, dfa, spread1, spread2, d2, ppe
             ]))
             result = parkinsons_model.predict([features])[0]
-            st.error("Parkinson's Disease detected." if result == 0 else "No Parkinson's Disease.")
+            st.error(" No Parkinson's Disease." if result == 0  else "Parkinson's Disease detected.")
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Parkinson-Disease-EDA-and-Prediction/img.webp", use_container_width=True)
