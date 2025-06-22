@@ -1,5 +1,7 @@
 # Data-Science-Project
 
+Deployed Project Link - https://disease0detection.streamlit.app/
+
 ![image](https://github.com/user-attachments/assets/daa30f66-b7e2-421e-9714-5e84a3948590)
 
 ![image](https://github.com/user-attachments/assets/2c7c40a9-ccd5-4408-bba4-82f97a439cae)
