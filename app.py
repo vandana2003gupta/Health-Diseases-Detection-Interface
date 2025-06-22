@@ -118,7 +118,7 @@ elif selected == 'Diabetes Detection':
             st.success("The person is not diabetic." if result == 0 else "The person is diabetic.")
         except Exception as e:
             st.error(f"Error: {str(e)}. Please enter valid numbers")
-    st.image("Diseases/Diabetes-Prediction-EDA/img3.jpg", use_container_width=True)
+    st.image("Diseases/Diabetes-Detection/img3.jpg", use_container_width=True)
 
 # Heart Disease Prediction
 elif selected == 'Heart Disease Detection':
@@ -160,7 +160,7 @@ elif selected == 'Heart Disease Detection':
             st.success("The person does not have heart disease." if result == 0 else "The person has heart disease.")
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
-    st.image("Diseases/Heart-Disease-Prediction/img4.png", use_container_width=True)
+    st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
 
 # Parkinson’s Disease
 elif selected == 'Parkinsons Detection':
@@ -206,7 +206,7 @@ elif selected == 'Parkinsons Detection':
             st.error(" No Parkinson's Disease." if result == 0  else "Parkinson's Disease detected.")
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
-    st.image("Diseases/Parkinson-Disease-EDA-and-Prediction/img.webp", use_container_width=True)
+    st.image("Diseases/Parkinson-Disease-Detection/img.webp", use_container_width=True)
 
 #Yoga Posture
 elif selected == 'Yoga Posture Corrector':
