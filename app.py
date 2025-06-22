@@ -157,7 +157,7 @@ elif selected == 'Heart Disease Detection':
                 slope, float(ca), thal
             ]
             result = heart_model.predict([input_data])[0]
-            st.success("The person does not have heart disease." if result == 0 else "The person has heart disease.")
+            st.success("The person has heart disease." if result == 0 else "The person does not have heart disease.")
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
