@@ -94,7 +94,7 @@ elif selected == 'Autism':
     st.image("Img2.jpg", use_container_width=True)
 
 # Diabetes Prediction
-elif selected == 'Diabetes Detection':
+elif selected == 'Diabetes':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Diabetes Detection using ML</h1>", unsafe_allow_html=True)
     st.write("Detect whether you are diabetic or not based on medical inputs")
@@ -121,7 +121,7 @@ elif selected == 'Diabetes Detection':
     st.image("Diseases/Diabetes-Detection/img3.jpg", use_container_width=True)
 
 # Heart Disease Prediction
-elif selected == 'Heart Disease Detection':
+elif selected == 'Heart Disease':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Heart Disease Detection using ML</h1>", unsafe_allow_html=True)
     st.write("Detect whether you have heart disease or not, based on health parameters")
@@ -163,7 +163,7 @@ elif selected == 'Heart Disease Detection':
     st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
 
 # Parkinson’s Disease
-elif selected == 'Parkinsons Detection':
+elif selected == 'Parkinsons':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Parkinson's Disease Detection</h1>", unsafe_allow_html=True)
     st.write("Detect whether you have Parkinson's Disease or not, based on provided metrics.")
@@ -209,7 +209,7 @@ elif selected == 'Parkinsons Detection':
     st.image("Diseases/Parkinson-Disease-Detection/img.webp", use_container_width=True)
 
 #Yoga Posture
-elif selected == 'Yoga Posture Corrector':
+elif selected == 'Yoga Posture':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>🧘‍♂️ Yoga Posture Corrector</h1>", unsafe_allow_html=True)
     st.write("Click below to open Urban Yogi live posture correction tool.")
