@@ -6,7 +6,6 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
 import google.generativeai as genai
-
 # --- Load API Key ---
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
