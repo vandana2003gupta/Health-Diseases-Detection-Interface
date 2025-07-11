@@ -194,7 +194,7 @@ elif selected == 'Report Analysis Bot':
     import fitz  # PyMuPDF
 
     set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>📄 Medical Report Analysis Bot </h1>", unsafe_allow_html=True)
+    st.markdown("<h1>📄 Medical Report Analysis Bot</h1>", unsafe_allow_html=True)
 
     # Configure Gemini API
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
