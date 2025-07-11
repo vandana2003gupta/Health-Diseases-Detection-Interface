@@ -194,7 +194,7 @@ elif selected == 'Report Analysis Bot':
     import fitz  # PyMuPDF
 
     set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>📄 Medical Report & Image Chatbot</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>📄 Medical Report Analysis Bot </h1>", unsafe_allow_html=True)
 
     # Configure Gemini API
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -208,14 +208,14 @@ elif selected == 'Report Analysis Bot':
         st.session_state.gemini_history = []
 
     # File uploader (image or PDF)
-    uploaded_file = st.file_uploader("📤 Upload a medical image or report (PDF)", type=["jpg", "jpeg", "png", "pdf"])
+    uploaded_file = st.file_uploader("Upload a medical image or report (PDF)", type=["jpg", "jpeg", "png", "pdf"])
 
     if uploaded_file:
         file_type = uploaded_file.type
 
         # --- Handle image upload ---
         if "image" in file_type:
-            st.image(uploaded_file, caption="📍 Uploaded Medical Image", use_column_width=True)
+            st.image(uploaded_file, caption="Uploaded Medical Image", use_column_width=True)
             image = Image.open(uploaded_file).convert("RGB")
             image_bytes_io = io.BytesIO()
             image.save(image_bytes_io, format="JPEG")
@@ -230,12 +230,12 @@ elif selected == 'Report Analysis Bot':
                 pdf_text += page.get_text()
             doc.close()
             st.session_state.gemini_pdf_text = pdf_text
-            st.text_area("📄 Extracted PDF Text", pdf_text, height=200)
+            st.text_area("Extracted PDF Text", pdf_text, height=200)
 
     # Question input
-    question = st.text_input("💬 Ask a question about the uploaded image or PDF")
+    question = st.text_input("Ask a question about the uploaded image or PDF")
 
-    if st.button("🔍 Ask Gemini") and question:
+    if st.button("🔍 Send Query") and question:
         try:
             model = genai.GenerativeModel("gemini-1.5-flash")
 
@@ -248,7 +248,7 @@ elif selected == 'Report Analysis Bot':
 
             content_parts.append({"text": question})
 
-            with st.spinner("🧠 Gemini is thinking..."):
+            with st.spinner(" thinking..."):
                 response = model.generate_content(content_parts)
                 reply = response.text
 
@@ -258,7 +258,7 @@ elif selected == 'Report Analysis Bot':
                 "response": reply
             })
 
-            st.success("✅ Gemini's Response:")
+            st.success("Response:")
             st.markdown(reply)
 
         except Exception as e:
@@ -267,13 +267,12 @@ elif selected == 'Report Analysis Bot':
     # Show history
     if st.session_state.gemini_history:
         st.markdown("---")
-        st.subheader("📜 Chat History")
+        st.subheader(" Chat History")
         for chat in reversed(st.session_state.gemini_history):
             st.markdown(f"""
             <div style='background-color:#f3f3f3;padding:10px;border-radius:8px;margin-bottom:10px'>
-            <b>🧍 You:</b> {chat['question']}<br><br>
-            <b>🤖 Gemini:</b> {chat['response']}
-            </div>
+            <b> You:</b> {chat['question']}<br><br>
+            <b> Gemini:</b> {chat['response']}
             """, unsafe_allow_html=True)
 
 # ============================ FEEDBACK ============================
