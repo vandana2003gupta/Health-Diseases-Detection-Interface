@@ -1,13 +1,22 @@
-import streamlit as st
+import os
 import pickle
-import webbrowser
-from streamlit_option_menu import option_menu
 import base64
+import io
+from dotenv import load_dotenv
+import streamlit as st
+from streamlit_option_menu import option_menu
+from PIL import Image
+import google.generativeai as genai
 
-# Page Configuration
+# --- Load API Key ---
+load_dotenv(dotenv_path="Medical Images Analysis/.env")
+import openai
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# --- Page Config ---
 st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 
-# Background Setup
+# --- Background Setup ---
 def set_bg_from_local(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
@@ -25,7 +34,7 @@ def set_bg_from_local(image_file):
         unsafe_allow_html=True
     )
 
-# Custom CSS for better visibility of inputs
+# --- CSS Styling ---
 st.markdown("""
     <style>
     .stTextInput > div > div > input, 
@@ -37,27 +46,22 @@ st.markdown("""
         border-radius: 10px;
         padding: 0.4rem;
     }
-
     .stButton button {
         border-radius: 10px;
         background-color: #ff944d;
         color: white;
     }
-
     .stButton button:hover {
         background-color: #ff6600;
-        
     }
-
-    h1 {{
+    h1 {
         text-align: center;
         color: black;
-    }}
-
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# Load Models
+# --- Loading Models ---
 try:
     with open('Diseases/Heart-Disease-Detection/heart.pkl', 'rb') as file:
         heart_model = pickle.load(file)
@@ -69,36 +73,32 @@ except Exception as e:
     st.error(f"Error loading models: {str(e)}")
     st.stop()
 
-# Sidebar
+# --- Sidebar ---
 with st.sidebar:
-    selected = option_menu('Diseases',
-                         ['Welcome', 'Autism', 'Diabetes',
-                          'Heart Disease', 'Parkinsons',
-                          'Yoga Posture', 'Feedback'],
-                         default_index=0)
+    selected = option_menu('Services',
+        ['Welcome', 'Autism Detection', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection',
+         'Yoga Posture Corrector', 'Report Analysis Bot', 'Feedback'],
+        default_index=0
+    )
 
-# Welcome Page
+# ============================ WELCOME ============================
 if selected == 'Welcome':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Health Disease Detection Interface</h1>", unsafe_allow_html=True)
-    st.write("""This application detects diseases like Diabetes, Heart and Parkinson's 
-    using Machine Learning, providing early health risk detection with ML models
-    """)
+    st.write("This application detects diseases like Diabetes, Heart, and Parkinson's using ML, and includes medical report, rash analysis bot & yoga assistance.")
     st.image("Img1.webp", use_container_width=True)
 
-# Autism Page
-elif selected == 'Autism':
+# ============================ AUTISM ============================*
+elif selected == 'Autism Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Autism Detection</h1>", unsafe_allow_html=True)
     st.write("Note - Autism section is under development.")
     st.image("Img2.jpg", use_container_width=True)
 
-# Diabetes Prediction
-elif selected == 'Diabetes':
+# ============================ DIABETES ============================
+elif selected == 'Diabetes Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Diabetes Detection using ML</h1>", unsafe_allow_html=True)
-    st.write("Detect whether you are diabetic or not based on medical inputs")
-
     col1, col2, col3 = st.columns(3)
     with col1: pregnancies = st.text_input('Number of Pregnancies', '0')
     with col2: glucose = st.text_input('Glucose Level', '120')
@@ -115,17 +115,15 @@ elif selected == 'Diabetes':
                           float(skin_thickness), float(insulin), float(bmi),
                           float(diabetes_pedigree), float(age)]
             result = diabetes_model.predict([input_data])[0]
-            st.success("The person is not diabetic." if result == 0 else "The person is diabetic.")
+            st.success("The person is not diabetic." if result == 1 else "The person is diabetic.")
         except Exception as e:
             st.error(f"Error: {str(e)}. Please enter valid numbers")
     st.image("Diseases/Diabetes-Detection/img3.jpg", use_container_width=True)
 
-# Heart Disease Prediction
-elif selected == 'Heart Disease':
+# ============================ HEART ============================
+elif selected == 'Heart Disease Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Heart Disease Detection using ML</h1>", unsafe_allow_html=True)
-    st.write("Detect whether you have heart disease or not, based on health parameters")
-
     col1, col2, col3 = st.columns(3)
     with col1: age = st.text_input('Age', '50')
     with col2: sex = st.selectbox('Sex', ['Male', 'Female'])
@@ -150,7 +148,6 @@ elif selected == 'Heart Disease':
             exang = int(exang.split(":")[0])
             slope = int(slope.split(":")[0])
             thal = int(thal.split(":")[0])
-
             input_data = [
                 float(age), sex, cp, float(trestbps), float(chol), fbs,
                 restecg, float(thalach), exang, float(oldpeak),
@@ -162,69 +159,130 @@ elif selected == 'Heart Disease':
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
 
-# Parkinson’s Disease
-elif selected == 'Parkinsons':
+# ============================ PARKINSONS ============================
+elif selected == 'Parkinsons Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Parkinson's Disease Detection</h1>", unsafe_allow_html=True)
-    st.write("Detect whether you have Parkinson's Disease or not, based on provided metrics.")
-
-    col1, col2 = st.columns(2)
-    with col1:
-        fo = st.text_input("MDVP:Fo(Hz)", '120')
-        fhi = st.text_input("MDVP:Fhi(Hz)", '140')
-        flo = st.text_input("MDVP:Flo(Hz)", '100')
-        jitter_percent = st.text_input("MDVP:Jitter(%)", '0.005')
-        jitter_abs = st.text_input("MDVP:Jitter(Abs)", '0.00005')
-        rap = st.text_input("MDVP:RAP", '0.003')
-        ppq = st.text_input("MDVP:PPQ", '0.004')
-        ddp = st.text_input("Jitter:DDP", '0.009')
-        shimmer = st.text_input("MDVP:Shimmer", '0.03')
-        shimmer_db = st.text_input("MDVP:Shimmer(dB)", '0.3')
-        apq3 = st.text_input("Shimmer:APQ3", '0.01')
-    with col2:
-        apq5 = st.text_input("Shimmer:APQ5", '0.02')
-        apq = st.text_input("MDVP:APQ", '0.02')
-        dda = st.text_input("Shimmer:DDA", '0.01')
-        nhr = st.text_input("NHR", '0.02')
-        hnr = st.text_input("HNR", '20')
-        rpde = st.text_input("RPDE", '0.4')
-        dfa = st.text_input("DFA", '0.7')
-        spread1 = st.text_input("spread1", '-6.5')
-        spread2 = st.text_input("spread2", '0.1')
-        d2 = st.text_input("D2", '2.3')
-        ppe = st.text_input("PPE", '0.2')
+    inputs = [st.text_input(label, default) for label, default in zip(
+        ["MDVP:Fo(Hz)", "MDVP:Fhi(Hz)", "MDVP:Flo(Hz)", "MDVP:Jitter(%)", "MDVP:Jitter(Abs)",
+         "MDVP:RAP", "MDVP:PPQ", "Jitter:DDP", "MDVP:Shimmer", "MDVP:Shimmer(dB)",
+         "Shimmer:APQ3", "Shimmer:APQ5", "MDVP:APQ", "Shimmer:DDA", "NHR", "HNR",
+         "RPDE", "DFA", "spread1", "spread2", "D2", "PPE"],
+        ['120', '140', '100', '0.005', '0.00005', '0.003', '0.004', '0.009', '0.03', '0.3',
+         '0.01', '0.02', '0.02', '0.01', '0.02', '20', '0.4', '0.7', '-6.5', '0.1', '2.3', '0.2']
+    )]
 
     if st.button("Parkinson's Test Result"):
         try:
-            features = list(map(float, [
-                fo, fhi, flo, jitter_percent, jitter_abs,
-                rap, ppq, ddp, shimmer, shimmer_db,
-                apq3, apq5, apq, dda, nhr, hnr,
-                rpde, dfa, spread1, spread2, d2, ppe
-            ]))
-            result = parkinsons_model.predict([features])[0]
-            st.error(" No Parkinson's Disease." if result == 0  else "Parkinson's Disease detected.")
+            result = parkinsons_model.predict([list(map(float, inputs))])[0]
+            st.error("Parkinson's Disease detected." if result == 1 else "No Parkinson's Disease.")
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Parkinson-Disease-Detection/img.webp", use_container_width=True)
+    
+# ============================ Yoga Posture ============================    
 
-#Yoga Posture
-elif selected == 'Yoga Posture':
+elif selected == 'Yoga Posture Corrector':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>🧘‍♂️ Yoga Posture Corrector</h1>", unsafe_allow_html=True)
-    st.write("Click below to open Urban Yogi live posture correction tool.")
     if st.button("Open Urban Yogi Pose Corrector"):
-        #webbrowser.open_new_tab("https://urban-yogi-main.vercel.app/")
-        st.components.v1.iframe( "https://urban-yogi-main.vercel.app", height=800, scrolling=True )
-
+        st.components.v1.iframe("https://urban-yogi-main.vercel.app", height=800, scrolling=True)
     st.image("Urban-Yogi-Main/img6.png", use_container_width=True)
 
+# ============================ IMAGE CHATBOT (Gemini Pro) ============================
+elif selected == 'Report Analysis Bot':
+    import google.generativeai as genai
+    from PIL import Image
+    import io
+    import fitz  # PyMuPDF
 
-# Feedback
+    set_bg_from_local('bg.jpeg')
+    st.markdown("<h1>📄 Medical Report & Image Chatbot</h1>", unsafe_allow_html=True)
+
+    # Configure Gemini API
+    genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+    # Initialize session state
+    if 'gemini_image_bytes' not in st.session_state:
+        st.session_state.gemini_image_bytes = None
+    if 'gemini_pdf_text' not in st.session_state:
+        st.session_state.gemini_pdf_text = ""
+    if 'gemini_history' not in st.session_state:
+        st.session_state.gemini_history = []
+
+    # File uploader (image or PDF)
+    uploaded_file = st.file_uploader("📤 Upload a medical image or report (PDF)", type=["jpg", "jpeg", "png", "pdf"])
+
+    if uploaded_file:
+        file_type = uploaded_file.type
+
+        # --- Handle image upload ---
+        if "image" in file_type:
+            st.image(uploaded_file, caption="📍 Uploaded Medical Image", use_column_width=True)
+            image = Image.open(uploaded_file).convert("RGB")
+            image_bytes_io = io.BytesIO()
+            image.save(image_bytes_io, format="JPEG")
+            st.session_state.gemini_image_bytes = image_bytes_io.getvalue()
+
+        # --- Handle PDF upload ---
+        elif file_type == "application/pdf":
+            st.markdown("✅ PDF uploaded. Extracting text...")
+            doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
+            pdf_text = ""
+            for page in doc:
+                pdf_text += page.get_text()
+            doc.close()
+            st.session_state.gemini_pdf_text = pdf_text
+            st.text_area("📄 Extracted PDF Text", pdf_text, height=200)
+
+    # Question input
+    question = st.text_input("💬 Ask a question about the uploaded image or PDF")
+
+    if st.button("🔍 Ask Gemini") and question:
+        try:
+            model = genai.GenerativeModel("gemini-1.5-flash")
+
+            # Build content parts
+            content_parts = []
+            if st.session_state.gemini_image_bytes:
+                content_parts.append({"inline_data": {"mime_type": "image/jpeg", "data": st.session_state.gemini_image_bytes}})
+            if st.session_state.gemini_pdf_text:
+                content_parts.append({"text": st.session_state.gemini_pdf_text})
+
+            content_parts.append({"text": question})
+
+            with st.spinner("🧠 Gemini is thinking..."):
+                response = model.generate_content(content_parts)
+                reply = response.text
+
+            # Save chat history
+            st.session_state.gemini_history.append({
+                "question": question,
+                "response": reply
+            })
+
+            st.success("✅ Gemini's Response:")
+            st.markdown(reply)
+
+        except Exception as e:
+            st.error(f"❌ Gemini Error: {str(e)}")
+
+    # Show history
+    if st.session_state.gemini_history:
+        st.markdown("---")
+        st.subheader("📜 Chat History")
+        for chat in reversed(st.session_state.gemini_history):
+            st.markdown(f"""
+            <div style='background-color:#f3f3f3;padding:10px;border-radius:8px;margin-bottom:10px'>
+            <b>🧍 You:</b> {chat['question']}<br><br>
+            <b>🤖 Gemini:</b> {chat['response']}
+            </div>
+            """, unsafe_allow_html=True)
+
+# ============================ FEEDBACK ============================
 elif selected == 'Feedback':
     set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>📝 Feedback Section</h1>", unsafe_allow_html=True)
-    st.write("We value your feedback!")
+    st.markdown("<h1> Feedback Section</h1>", unsafe_allow_html=True)
     feedback = st.text_area("Write your suggestions below:")
     rating = st.slider("How was your experience?", 0, 10, 5)
     if st.button("Submit Feedback"):
