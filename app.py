@@ -2,16 +2,13 @@ import os
 import pickle
 import base64
 import io
-from dotenv import load_dotenv
 import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
 import google.generativeai as genai
 
 # --- Load API Key ---
-load_dotenv(dotenv_path="Medical Images Analysis/.env")
-import openai
-openai.api_key = os.getenv("OPENAI_API_KEY")
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 # --- Page Config ---
 st.set_page_config(page_title="Health Care Analyzer", layout="wide")
