@@ -1,4 +1,4 @@
-timport os
+import os
 import pickle
 import base64
 import io
