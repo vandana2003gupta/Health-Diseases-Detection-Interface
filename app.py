@@ -6,11 +6,51 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 from PIL import Image
 import google.generativeai as genai
-# --- Load API Key ---
+
+#  API Key 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-# --- Page Config ---
+# Page Config 
 st.set_page_config(page_title="Health Care Analyzer", layout="wide")
+
+# Forced Light Theme 
+st.markdown("""
+    <style>
+    body, .stApp {
+        background-color: #FFFFFF !important;
+        color: #31333F !important;
+    }
+    [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
+        background-color: #F0F2F6 !important;
+        color: #31333F !important;
+    }
+    .css-ffhzg2 {
+        background-color: #F0F2F6 !important;
+        color: black !important;
+    }
+    .stTextInput > div > div > input, 
+    .stSelectbox > div > div>div,
+    .stTextArea textarea {
+        background-color: #FFFFFF !important;
+        color: black;
+        border: 1px solid #FF4B4B;
+        border-radius: 10px;
+        padding: 0.4rem;
+    }
+    .stButton button {
+        border-radius: 10px;
+        background-color: #FF4B4B;
+        color: white;
+    }
+    .stButton button:hover {
+        background-color: #e63946;
+    }
+    h1 {
+        text-align: center;
+        color: black;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 # --- Background Setup ---
 def set_bg_from_local(image_file):
@@ -30,34 +70,7 @@ def set_bg_from_local(image_file):
         unsafe_allow_html=True
     )
 
-# --- CSS Styling ---
-st.markdown("""
-    <style>
-    .stTextInput > div > div > input, 
-    .stSelectbox > div > div>div,
-    .stTextArea textarea {
-        background-color: rgba(255, 255, 255, 0.9);
-        color: black;
-        border: 1px solid #FFA07A;
-        border-radius: 10px;
-        padding: 0.4rem;
-    }
-    .stButton button {
-        border-radius: 10px;
-        background-color: #ff944d;
-        color: white;
-    }
-    .stButton button:hover {
-        background-color: #ff6600;
-    }
-    h1 {
-        text-align: center;
-        color: black;
-    }
-    </style>
-""", unsafe_allow_html=True)
-
-# --- Loading Models ---
+# --- Load Models ---
 try:
     with open('Diseases/Heart-Disease-Detection/heart.pkl', 'rb') as file:
         heart_model = pickle.load(file)
@@ -69,7 +82,7 @@ except Exception as e:
     st.error(f"Error loading models: {str(e)}")
     st.stop()
 
-# --- Sidebar ---
+# --- Sidebar Navigation ---
 with st.sidebar:
     selected = option_menu('Services',
         ['Welcome', 'Autism Detection', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection',
@@ -77,21 +90,23 @@ with st.sidebar:
         default_index=0
     )
 
-# ============================ WELCOME ============================
+# === Pages ===
+
+# Welcome
 if selected == 'Welcome':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Health Disease Detection Interface</h1>", unsafe_allow_html=True)
     st.write("This application detects diseases like Diabetes, Heart, and Parkinson's using ML, and includes medical report, rash analysis bot & yoga assistance.")
     st.image("Img1.webp", use_container_width=True)
 
-# ============================ AUTISM ============================*
+# Autism
 elif selected == 'Autism Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Autism Detection</h1>", unsafe_allow_html=True)
     st.write("Note - Autism section is under development.")
     st.image("Img2.jpg", use_container_width=True)
 
-# ============================ DIABETES ============================
+# Diabetes
 elif selected == 'Diabetes Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Diabetes Detection using ML</h1>", unsafe_allow_html=True)
@@ -116,7 +131,7 @@ elif selected == 'Diabetes Detection':
             st.error(f"Error: {str(e)}. Please enter valid numbers")
     st.image("Diseases/Diabetes-Detection/img3.jpg", use_container_width=True)
 
-# ============================ HEART ============================
+# Heart
 elif selected == 'Heart Disease Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Heart Disease Detection using ML</h1>", unsafe_allow_html=True)
@@ -155,7 +170,7 @@ elif selected == 'Heart Disease Detection':
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
 
-# ============================ PARKINSONS ============================
+# Parkinson's
 elif selected == 'Parkinsons Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Parkinson's Disease Detection</h1>", unsafe_allow_html=True)
@@ -175,9 +190,8 @@ elif selected == 'Parkinsons Detection':
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Parkinson-Disease-Detection/img.webp", use_container_width=True)
-    
-# ============================ Yoga Posture ============================    
 
+# Yoga
 elif selected == 'Yoga Posture Corrector':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>🧘‍♂️ Yoga Posture Corrector</h1>", unsafe_allow_html=True)
@@ -185,20 +199,14 @@ elif selected == 'Yoga Posture Corrector':
         st.components.v1.iframe("https://urban-yogi-main.vercel.app", height=800, scrolling=True)
     st.image("Urban-Yogi-Main/img6.png", use_container_width=True)
 
-# ============================ IMAGE CHATBOT (Gemini Pro) ============================
+# Report Analysis
 elif selected == 'Report Analysis Bot':
-    import google.generativeai as genai
-    from PIL import Image
-    import io
     import fitz  # PyMuPDF
 
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>📄 Medical Report Analysis Bot</h1>", unsafe_allow_html=True)
-
-    # Configure Gemini API
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-    # Initialize session state
     if 'gemini_image_bytes' not in st.session_state:
         st.session_state.gemini_image_bytes = None
     if 'gemini_pdf_text' not in st.session_state:
@@ -206,75 +214,59 @@ elif selected == 'Report Analysis Bot':
     if 'gemini_history' not in st.session_state:
         st.session_state.gemini_history = []
 
-    # File uploader (image or PDF)
     uploaded_file = st.file_uploader("Upload a medical image or report (PDF)", type=["jpg", "jpeg", "png", "pdf"])
 
     if uploaded_file:
         file_type = uploaded_file.type
-
-        # --- Handle image upload ---
         if "image" in file_type:
             st.image(uploaded_file, caption="Uploaded Medical Image", use_column_width=True)
             image = Image.open(uploaded_file).convert("RGB")
             image_bytes_io = io.BytesIO()
             image.save(image_bytes_io, format="JPEG")
             st.session_state.gemini_image_bytes = image_bytes_io.getvalue()
-
-        # --- Handle PDF upload ---
         elif file_type == "application/pdf":
-            st.markdown("✅ PDF uploaded. Extracting text...")
+            st.markdown("PDF uploaded. Extracting text...")
             doc = fitz.open(stream=uploaded_file.read(), filetype="pdf")
-            pdf_text = ""
-            for page in doc:
-                pdf_text += page.get_text()
+            pdf_text = "".join([page.get_text() for page in doc])
             doc.close()
             st.session_state.gemini_pdf_text = pdf_text
             st.text_area("Extracted PDF Text", pdf_text, height=200)
 
-    # Question input
     question = st.text_input("Ask a question about the uploaded image or PDF")
 
     if st.button("🔍 Send Query") and question:
         try:
             model = genai.GenerativeModel("gemini-1.5-flash")
-
-            # Build content parts
             content_parts = []
             if st.session_state.gemini_image_bytes:
                 content_parts.append({"inline_data": {"mime_type": "image/jpeg", "data": st.session_state.gemini_image_bytes}})
             if st.session_state.gemini_pdf_text:
                 content_parts.append({"text": st.session_state.gemini_pdf_text})
-
             content_parts.append({"text": question})
 
             with st.spinner(" thinking..."):
                 response = model.generate_content(content_parts)
                 reply = response.text
 
-            # Save chat history
-            st.session_state.gemini_history.append({
-                "question": question,
-                "response": reply
-            })
-
+            st.session_state.gemini_history.append({"question": question, "response": reply})
             st.success("Response:")
             st.markdown(reply)
 
         except Exception as e:
-            st.error(f"❌ Gemini Error: {str(e)}")
+            st.error(f"Gemini Error: {str(e)}")
 
-    # Show history
     if st.session_state.gemini_history:
         st.markdown("---")
         st.subheader(" Chat History")
         for chat in reversed(st.session_state.gemini_history):
             st.markdown(f"""
-            <div style='background-color:#f3f3f3;padding:10px;border-radius:8px;margin-bottom:10px'>
-            <b> You:</b> {chat['question']}<br><br>
-            <b> Gemini:</b> {chat['response']}
+                <div style='background-color:#f3f3f3;padding:10px;border-radius:8px;margin-bottom:10px'>
+                <b> You:</b> {chat['question']}<br><br>
+                <b> Gemini:</b> {chat['response']}
+                </div>
             """, unsafe_allow_html=True)
 
-# ============================ FEEDBACK ============================
+# Feedback
 elif selected == 'Feedback':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1> Feedback Section</h1>", unsafe_allow_html=True)
