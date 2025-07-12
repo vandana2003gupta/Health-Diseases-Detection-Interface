@@ -36,7 +36,7 @@ st.markdown("""
 
     /* Input Fields Styling */
     .stTextInput input,
-    .stTextArea textarea, .stSelectbox div[role="button"] {
+    .stTextArea textarea,{
         background-color: #FFFFFF !important;
         color: #1e1e1e !important;
         border: 2px solid #FF4B4B !important;
@@ -48,7 +48,7 @@ st.markdown("""
     /* Dropdown Arrow & Display Text Styling */
     .stSelectbox div[role="button"]{
         background-color: #FFFFFF !important;
-        color: #1e1e1e !important;
+        color: black !important;
         border: 2px solid #FF4B4B !important;
         border-radius: 8px !important;
         padding: 8px !important;
