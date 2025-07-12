@@ -16,56 +16,48 @@ st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 # Forced Light Theme 
 st.markdown("""
     <style>
-    body, .stApp {
-        background-color: #FFFFFF !important;
-        color: #31333F !important;
-    }
-    [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
-        background-color: #F0F2F6 !important;
-        color: #31333F !important;
+    /* Title */
+    h1 {
+        color: black;
+        font-size: 32px;
+        font-weight: bold;
     }
 
-    /* Input Styling */
-    .stTextInput input, 
-    .stSelectbox div[data-baseweb="select"], 
-    .stTextArea textarea {
-        background-color: #FFFFFF !important;
+    /* Dropdown fields */
+    select, .stSelectbox div {
+        background-color: white !important;
         color: black !important;
-        border: 1.5px solid #FF4B4B !important;
-        border-radius: 10px !important;
-        padding: 0.4rem !important;
+        border-radius: 6px;
+        padding: 8px;
     }
 
-    /* Dropdown Arrow Styling Fix */
-    .stSelectbox div[role="button"] {
-        background-color: #FFFFFF !important;
+    /* Input boxes */
+    input {
+        background-color: white !important;
         color: black !important;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 8px;
     }
 
-    /* Label Fixes (title text like “Sex”, etc.) */
-    label, .css-1j3q34j, .stMarkdown p {
-        color: black !important;
-        font-weight: 500;
-    }
-
-    /* Button Styling */
-    .stButton button {
-        border-radius: 10px;
-        background-color: #FF4B4B;
+    /* Buttons */
+    .stButton>button {
+        background-color: #FF5E5E;
         color: white;
-        font-weight: 600;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: 0.3s;
     }
 
-    .stButton button:hover {
-        background-color: #e63946;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: black !important;
-        font-weight: 700;
+    .stButton>button:hover {
+        background-color: #ff7a7a;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 # st.markdown("""
