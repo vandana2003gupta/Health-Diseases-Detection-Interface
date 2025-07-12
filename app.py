@@ -45,22 +45,29 @@ st.markdown("""
         border: none !important;
     }
 
+    /* Label Fixes (title text like “Sex”, etc.) */
+    label, .css-1j3q34j, .stMarkdown p {
+        color: black !important;
+        font-weight: 500;
+    }
+
     /* Button Styling */
-    .stButton>button {
-        border-radius: 8px;
+    .stButton button {
+        border-radius: 10px;
         background-color: #FF4B4B;
         color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        font-weight: bold;
-        font-size: 16px;
+        font-weight: 600;
     }
 
-    .stButton>button:hover {
+    .stButton button:hover {
         background-color: #e63946;
-        color: white;
     }
 
+    h1, h2, h3, h4, h5, h6 {
+        color: black !important;
+        font-weight: 700;
+    }
+    </style>
     /* Title Styling */
     h1 {
         text-align: center;
