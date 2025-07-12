@@ -273,4 +273,4 @@ elif selected == 'Feedback':
     feedback = st.text_area("Write your suggestions below:")
     rating = st.slider("How was your experience?", 0, 10, 5)
     if st.button("Submit Feedback"):
-        st.success("Thank you for your feedback!") this is my app.py
+        st.success("Thank you for your feedback!")
