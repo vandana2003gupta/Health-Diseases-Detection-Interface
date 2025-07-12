@@ -22,7 +22,7 @@ st.markdown("""
     }
     [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
         background-color: #F0F2F6 !important;
-        color: #31333F !important;
+        color: #1e1e1e !important;
     }
 
     /* Input fields (text, select, text area) */
@@ -72,9 +72,6 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
-
-
-
 
 
 # st.markdown("""
@@ -133,7 +130,7 @@ def set_bg_from_local(image_file):
         unsafe_allow_html=True
     )
 
-# --- Load Models ---
+# Models
 try:
     with open('Diseases/Heart-Disease-Detection/heart.pkl', 'rb') as file:
         heart_model = pickle.load(file)
@@ -145,7 +142,7 @@ except Exception as e:
     st.error(f"Error loading models: {str(e)}")
     st.stop()
 
-# --- Sidebar Navigation ---
+# SideBar Navigation
 with st.sidebar:
     selected = option_menu('Services',
         ['Welcome', 'Autism Detection', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection',
@@ -234,7 +231,7 @@ elif selected == 'Heart Disease Detection':
     st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
 
 # Parkinson's
-elif selected == 'Parkinsons Detection':
+elif selected == 'Parkinson's Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Parkinson's Disease Detection</h1>", unsafe_allow_html=True)
     inputs = [st.text_input(label, default) for label, default in zip(
