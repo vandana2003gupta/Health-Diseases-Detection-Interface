@@ -39,7 +39,7 @@ st.markdown("""
     }
 
     /* Dropdown Arrow Styling Fix */
-    .stSelectbox div {
+    .stSelectbox div[role="button"] {
         background-color: #FFFFFF !important;
         color: #1e1e1e !important;
         border: 2px solid #FF4B4B !important;
