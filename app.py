@@ -48,7 +48,6 @@ st.markdown("""
     /* Dropdown Arrow & Display Text Styling */
     .stSelectbox div[role="button"], .stSelectbox div[data-baseweb="select"], 
     {
-        background-color: #FFFFFF !important;
         color: #1e1e1e !important;
         border: 2px solid #FF4B4B !important;
         border-radius: 8px !important;
