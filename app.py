@@ -7,71 +7,57 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 import google.generativeai as genai
 
-# Force Light Theme Globally
-st.set_page_config(page_title="Health Care Analyzer", layout="wide")
-
-# Apply consistent light theme CSS overrides
-st.markdown("""
-<style>
-/* App background and text */
-html, body, [data-testid="stApp"] {
-    background-color: #ffffff !important;
-    color: #262730 !important;
-}
-
-/* Sidebar */
-[data-testid="stSidebar"] {
-    background-color: #F0F2F6 !important;
-    color: #262730 !important;
-}
-
-/* Input boxes (Text, Selectbox, Textarea) */
-input, textarea, .stSelectbox div div {
-    background-color: white !important;
-    color: black !important;
-    border: 1px solid #FFA500 !important;  /* orange */
-    border-radius: 10px !important;
-    padding: 6px 10px !important;
-    box-shadow: none !important;
-}
-
-/* Button */
-.stButton button {
-    background-color: #FFA500; /* orange */
-    color: white;
-    border-radius: 8px;
-    padding: 0.5em 1em;
-    border: none;
-    font-weight: bold;
-}
-.stButton button:hover {
-    background-color: #e69500; /* darker orange */
-}
-
-/* Headings */
-h1, h2, h3, h4 {
-    color: #262730 !important;
-    font-weight: 700;
-}
-
-/* Remove odd outlines on selectbox or buttons */
-button:focus, input:focus, select:focus, textarea:focus {
-    outline: none !important;
-    border-color: #FFA500 !important;
-    box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2) !important;
-}
-</style>
-""", unsafe_allow_html=True)
-
-
-# GEMINI API Setup
+#  API Key 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-# Background Setup
+# Page Config 
+st.set_page_config(page_title="Health Care Analyzer", layout="wide")
+
+# Forced Light Theme 
+st.markdown("""
+    <style>
+    body, .stApp {
+        background-color: #FFFFFF !important;
+        color: #31333F !important;
+    }
+    [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
+        background-color: #F0F2F6 !important;
+        color: #31333F !important;
+    }
+    .css-ffhzg2 {
+        background-color: #F0F2F6 !important;
+        color: black !important;
+    }
+    .stTextInput > div > div > input, 
+    .stSelectbox > div > div>div,
+    .stTextArea textarea {
+        background-color: #FFFFFF !important;
+        color: black;
+        border: 1px solid #FF4B4B;
+        border-radius: 10px;
+        padding: 0.4rem;
+    }
+    .stButton button {
+        border-radius: 10px;
+        background-color: #FF4B4B;
+        color: white;
+    }
+    .stButton button:hover {
+        background-color: #e63946;
+    }
+    h1 {
+        text-align: center;
+        color: black;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+# --- Background Setup ---
 def set_bg_from_local(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
-    st.markdown(f"""
+    st.markdown(
+        f"""
         <style>
         .stApp {{
             background-image: url("data:image/jpeg;base64,{encoded}");
@@ -80,9 +66,11 @@ def set_bg_from_local(image_file):
             background-attachment: fixed;
         }}
         </style>
-    """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True
+    )
 
-# Load Models
+# --- Load Models ---
 try:
     with open('Diseases/Heart-Disease-Detection/heart.pkl', 'rb') as file:
         heart_model = pickle.load(file)
@@ -94,14 +82,13 @@ except Exception as e:
     st.error(f"Error loading models: {str(e)}")
     st.stop()
 
-# Sidebar Menu
+# --- Sidebar Navigation ---
 with st.sidebar:
     selected = option_menu('Services',
         ['Welcome', 'Autism Detection', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection',
          'Yoga Posture Corrector', 'Report Analysis Bot', 'Feedback'],
         default_index=0
     )
-
 
 # === Pages ===
 
@@ -286,4 +273,4 @@ elif selected == 'Feedback':
     feedback = st.text_area("Write your suggestions below:")
     rating = st.slider("How was your experience?", 0, 10, 5)
     if st.button("Submit Feedback"):
-        st.success("Thank you for your feedback!")
+        st.success("Thank you for your feedback!") this is my app.py
