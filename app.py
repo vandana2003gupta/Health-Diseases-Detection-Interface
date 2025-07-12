@@ -16,7 +16,7 @@ st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 # Forced Light Theme 
 st.markdown("""
     <style>
-    body, .stApp {
+    body, text, .stApp {
         background-color: #FFFFFF !important;
         color: #1e1e1e !important;
     }
