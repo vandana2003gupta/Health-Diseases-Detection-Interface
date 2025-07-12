@@ -25,15 +25,14 @@ st.markdown("""
         color: #31333F !important;
     }
 
-    /* Input Styling */
-    .stTextInput input, 
-    .stSelectbox div[data-baseweb="select"], 
-    .stTextArea textarea {
-        background-color: #FFFFFF !important;
-        color: black !important;
-        border: 1.5px solid #FF4B4B !important;
-        border-radius: 10px !important;
-        padding: 0.4rem !important;
+    /* Input fields (text, select, text area) */
+    input, select, textarea {
+        background-color: #ffffff !important;
+        color: #1e1e1e !important;
+        border: 2px solid #FF4B4B !important;
+        border-radius: 8px !important;
+        padding: 8px !important;
+        font-size: 16px !important;
     }
 
     /* Dropdown Arrow Styling Fix */
