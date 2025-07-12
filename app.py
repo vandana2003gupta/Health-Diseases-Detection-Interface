@@ -48,7 +48,7 @@ st.markdown("""
     /* Dropdown Button Styling */
     .stSelectbox div[data-baseweb="select"] {
         background-color: #FFFFFF !important;
-        color: #1e1e1e !important;
+        color: white !important;
         border: 2px solid #FF4B4B !important;
         border-radius: 8px !important;
         padding: 8px !important;
