@@ -16,47 +16,71 @@ st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 # Forced Light Theme 
 st.markdown("""
     <style>
-    /* Title */
-    h1 {
-        color: black;
-        font-size: 32px;
-        font-weight: bold;
+    /* General Light Background and Text */
+    body, .stApp {
+        background-color: #FFFFFF !important;
+        color: #1e1e1e !important;
     }
 
-    /* Dropdown fields */
-    select, .stSelectbox div {
-        background-color: white !important;
-        color: black !important;
-        border-radius: 6px;
-        padding: 8px;
+    /* Sidebar and header cleanup */
+    [data-testid="stSidebar"], [data-testid="stHeader"], [data-testid="stToolbar"] {
+        background-color: #F0F2F6 !important;
+        color: #000000 !important;
     }
 
-    /* Input boxes */
-    input {
-        background-color: white !important;
-        color: black !important;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        padding: 8px;
+    /* Input fields (text, select, text area) */
+    input, select, textarea {
+        background-color: #ffffff !important;
+        color: #1e1e1e !important;
+        border: 2px solid #FF4B4B !important;
+        border-radius: 8px !important;
+        padding: 8px !important;
+        font-size: 16px !important;
     }
 
-    /* Buttons */
+    /* Streamlit widget containers for better alignment */
+    .stTextInput > div > div,
+    .stSelectbox > div > div,
+    .stTextArea > div {
+        border: none !important;
+    }
+
+    /* Button Styling */
     .stButton>button {
-        background-color: #FF5E5E;
+        border-radius: 8px;
+        background-color: #FF4B4B;
         color: white;
         border: none;
-        padding: 10px 20px;
-        border-radius: 8px;
+        padding: 0.5rem 1rem;
         font-weight: bold;
-        transition: 0.3s;
+        font-size: 16px;
     }
 
     .stButton>button:hover {
-        background-color: #ff7a7a;
-        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        background-color: #e63946;
+        color: white;
+    }
+
+    /* Title Styling */
+    h1 {
+        text-align: center;
+        color: #111 !important;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    /* Keep dropdown indicators visible on dark backgrounds */
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: #fff !important;
+    }
+
+    /* Fix input alignment issue in dark mode */
+    .stTextInput input, .stSelectbox select, .stTextArea textarea {
+        box-shadow: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
