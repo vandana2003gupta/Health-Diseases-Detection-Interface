@@ -26,7 +26,10 @@ st.markdown("""
     }
 
     /* Input fields (text, select, text area) */
-    input, select, textarea {
+    .stTextInput input, 
+    .stSelectbox div[data-baseweb="select"], 
+    .stTextArea textarea
+    {
         background-color: #ffffff !important;
         color: #1e1e1e !important;
         border: 2px solid #FF4B4B !important;
