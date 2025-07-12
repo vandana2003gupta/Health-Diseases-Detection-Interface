@@ -16,68 +16,57 @@ st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 # Forced Light Theme 
 st.markdown("""
     <style>
-    /* Base Theme: Light Background and Clean Fonts */
     body, .stApp {
         background-color: #FFFFFF !important;
         color: #31333F !important;
     }
-
-    /* Sidebar and Topbar */
     [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
         background-color: #F0F2F6 !important;
         color: #31333F !important;
     }
 
-    /* Label Text (like Age, Sex, etc.) */
+    /* Input Styling */
+    .stTextInput input, 
+    .stSelectbox div[data-baseweb="select"], 
+    .stTextArea textarea {
+        background-color: #FFFFFF !important;
+        color: black !important;
+        border: 1.5px solid #FF4B4B !important;
+        border-radius: 10px !important;
+        padding: 0.4rem !important;
+    }
+
+    /* Dropdown Arrow Styling Fix */
+    .stSelectbox div[role="button"] {
+        background-color: #FFFFFF !important;
+        color: black !important;
+    }
+
+    /* Label Fixes (title text like “Sex”, etc.) */
     label, .css-1j3q34j, .stMarkdown p {
         color: black !important;
-        font-weight: 500 !important;
-    }
-
-    /* Input Fields Styling */
-    .stTextInput input,
-    .stTextArea textarea,{
-        background-color: #FFFFFF !important;
-        color: #1e1e1e !important;
-        border: 2px solid #FF4B4B !important;
-        border-radius: 8px !important;
-        padding: 8px !important;
-        font-size: 16px !important;
-    }
-
-    /* Dropdown Arrow & Display Text Styling */
-    .stSelectbox div[role="button"]{
-        background-color: #FFFFFF !important;
-        color: #1e1e1e !important;
-        border: 2px solid #FF4B4B !important;
-        border-radius: 8px !important;
-        padding: 8px !important;
-        font-size: 16px !important;
+        font-weight: 500;
     }
 
     /* Button Styling */
-    .stButton>button {
+    .stButton button {
         border-radius: 10px;
         background-color: #FF4B4B;
         color: white;
         font-weight: 600;
-        font-size: 16px;
-        padding: 0.5rem 1rem;
-        border: none;
     }
 
-    .stButton>button:hover {
+    .stButton button:hover {
         background-color: #e63946;
-        color: white;
     }
 
-    /* Heading Styling */
     h1, h2, h3, h4, h5, h6 {
         color: black !important;
         font-weight: 700;
     }
     </style>
 """, unsafe_allow_html=True)
+
 
 
 
