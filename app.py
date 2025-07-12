@@ -1,4 +1,4 @@
-import os
+timport os
 import pickle
 import base64
 import io
@@ -39,9 +39,13 @@ st.markdown("""
     }
 
     /* Dropdown Arrow Styling Fix */
-    .stSelectbox div[role="button"] {
+    select, .stSelectbox div {
         background-color: #FFFFFF !important;
         color: #1e1e1e !important;
+        border: 2px solid #FF4B4B !important;
+        border-radius: 8px !important;
+        padding: 8px !important;
+        font-size: 16px !important;
     }
 
     /* Label Fixes (title text like “Sex”, etc.) */
