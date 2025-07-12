@@ -146,7 +146,7 @@ except Exception as e:
 # SideBar Navigation
 with st.sidebar:
     selected = option_menu('Services',
-        ['Welcome', 'Autism Detection', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection',
+        ['Welcome', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection', 'Autism Detection',
          'Yoga Posture Corrector', 'Report Analysis Bot', 'Feedback'],
         default_index=0
     )
@@ -159,13 +159,6 @@ if selected == 'Welcome':
     st.markdown("<h1>Health Disease Detection Interface</h1>", unsafe_allow_html=True)
     st.write("This application detects diseases like Diabetes, Heart, and Parkinson's using ML, and includes medical report, rash analysis bot & yoga assistance.")
     st.image("Img1.webp", use_container_width=True)
-
-# Autism
-elif selected == 'Autism Detection':
-    set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>Autism Detection</h1>", unsafe_allow_html=True)
-    st.write("Note - Autism section is under development.")
-    st.image("Img2.jpg", use_container_width=True)
 
 # Diabetes
 elif selected == 'Diabetes Detection':
@@ -251,6 +244,13 @@ elif selected == 'Parkinsons Detection':
         except Exception as e:
             st.error(f"Input Error: {str(e)}")
     st.image("Diseases/Parkinson-Disease-Detection/img.webp", use_container_width=True)
+
+# Autism
+elif selected == 'Autism Detection':
+    set_bg_from_local('bg.jpeg')
+    st.markdown("<h1>Autism Detection</h1>", unsafe_allow_html=True)
+    st.write("Note - Autism section is under development.")
+    st.image("Img2.jpg", use_container_width=True)
 
 # Yoga
 elif selected == 'Yoga Posture Corrector':
