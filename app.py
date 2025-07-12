@@ -7,57 +7,55 @@ from streamlit_option_menu import option_menu
 from PIL import Image
 import google.generativeai as genai
 
-#  API Key 
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-
-# Page Config 
+# Force Light Theme Globally
 st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 
-# Forced Light Theme 
+# Apply consistent light theme CSS overrides
 st.markdown("""
     <style>
-    body, .stApp {
-        background-color: #FFFFFF !important;
-        color: #31333F !important;
+    html, body, [data-testid="stApp"]  {
+        background-color: #ffffff !important;
+        color: #262730 !important;
     }
-    [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
+    [data-testid="stSidebar"] {
         background-color: #F0F2F6 !important;
-        color: #31333F !important;
+        color: #262730 !important;
     }
-    .css-ffhzg2 {
-        background-color: #F0F2F6 !important;
-        color: black !important;
+    .css-1v3fvcr, .css-1d391kg {
+        background-color: #ffffff !important;
+        color: #262730 !important;
     }
-    .stTextInput > div > div > input, 
-    .stSelectbox > div > div>div,
+    .stTextInput input,
+    .stSelectbox div div,
     .stTextArea textarea {
-        background-color: #FFFFFF !important;
+        background-color: #ffffff !important;
         color: black;
         border: 1px solid #FF4B4B;
         border-radius: 10px;
         padding: 0.4rem;
     }
     .stButton button {
-        border-radius: 10px;
         background-color: #FF4B4B;
         color: white;
+        border-radius: 10px;
     }
     .stButton button:hover {
         background-color: #e63946;
     }
-    h1 {
-        text-align: center;
+    h1, h2, h3, h4, h5, h6, p {
         color: black;
     }
     </style>
 """, unsafe_allow_html=True)
 
-# --- Background Setup ---
+# GEMINI API Setup
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+
+# Background Setup
 def set_bg_from_local(image_file):
     with open(image_file, "rb") as file:
         encoded = base64.b64encode(file.read()).decode()
-    st.markdown(
-        f"""
+    st.markdown(f"""
         <style>
         .stApp {{
             background-image: url("data:image/jpeg;base64,{encoded}");
@@ -66,11 +64,9 @@ def set_bg_from_local(image_file):
             background-attachment: fixed;
         }}
         </style>
-        """,
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 
-# --- Load Models ---
+# Load Models
 try:
     with open('Diseases/Heart-Disease-Detection/heart.pkl', 'rb') as file:
         heart_model = pickle.load(file)
@@ -82,13 +78,14 @@ except Exception as e:
     st.error(f"Error loading models: {str(e)}")
     st.stop()
 
-# --- Sidebar Navigation ---
+# Sidebar Menu
 with st.sidebar:
     selected = option_menu('Services',
         ['Welcome', 'Autism Detection', 'Diabetes Detection', 'Heart Disease Detection', 'Parkinsons Detection',
          'Yoga Posture Corrector', 'Report Analysis Bot', 'Feedback'],
         default_index=0
     )
+
 
 # === Pages ===
 
