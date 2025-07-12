@@ -12,41 +12,57 @@ st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 
 # Apply consistent light theme CSS overrides
 st.markdown("""
-    <style>
-    html, body, [data-testid="stApp"]  {
-        background-color: #ffffff !important;
-        color: #262730 !important;
-    }
-    [data-testid="stSidebar"] {
-        background-color: #F0F2F6 !important;
-        color: #262730 !important;
-    }
-    .css-1v3fvcr, .css-1d391kg {
-        background-color: #ffffff !important;
-        color: #262730 !important;
-    }
-    .stTextInput input,
-    .stSelectbox div div,
-    .stTextArea textarea {
-        background-color: #ffffff !important;
-        color: black;
-        border: 1px solid #FF4B4B;
-        border-radius: 10px;
-        padding: 0.4rem;
-    }
-    .stButton button {
-        background-color: #FF4B4B;
-        color: white;
-        border-radius: 10px;
-    }
-    .stButton button:hover {
-        background-color: #e63946;
-    }
-    h1, h2, h3, h4, h5, h6, p {
-        color: black;
-    }
-    </style>
+<style>
+/* App background and text */
+html, body, [data-testid="stApp"] {
+    background-color: #ffffff !important;
+    color: #262730 !important;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #F0F2F6 !important;
+    color: #262730 !important;
+}
+
+/* Input boxes (Text, Selectbox, Textarea) */
+input, textarea, .stSelectbox div div {
+    background-color: white !important;
+    color: black !important;
+    border: 1px solid #FFA500 !important;  /* orange */
+    border-radius: 10px !important;
+    padding: 6px 10px !important;
+    box-shadow: none !important;
+}
+
+/* Button */
+.stButton button {
+    background-color: #FFA500; /* orange */
+    color: white;
+    border-radius: 8px;
+    padding: 0.5em 1em;
+    border: none;
+    font-weight: bold;
+}
+.stButton button:hover {
+    background-color: #e69500; /* darker orange */
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: #262730 !important;
+    font-weight: 700;
+}
+
+/* Remove odd outlines on selectbox or buttons */
+button:focus, input:focus, select:focus, textarea:focus {
+    outline: none !important;
+    border-color: #FFA500 !important;
+    box-shadow: 0 0 0 2px rgba(255, 165, 0, 0.2) !important;
+}
+</style>
 """, unsafe_allow_html=True)
+
 
 # GEMINI API Setup
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
