@@ -231,7 +231,7 @@ elif selected == 'Heart Disease Detection':
     st.image("Diseases/Heart-Disease-Detection/img4.png", use_container_width=True)
 
 # Parkinson's
-elif selected == 'Parkinson's Detection':
+elif selected == 'Parkinsons Detection':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Parkinson's Disease Detection</h1>", unsafe_allow_html=True)
     inputs = [st.text_input(label, default) for label, default in zip(
