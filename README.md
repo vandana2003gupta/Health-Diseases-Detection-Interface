@@ -1,6 +1,7 @@
 #  Health Diseases Detection Interface
 
 ## Live Application - https://health-disease-detection-interface.streamlit.app/
+(note) Plz view in light theme
 
 ## Project Overview
 This is a **Health Disease Detection Interface** built using **Streamlit** which enables users to predict multiple diseases based on medical parameters. It includes an intuitive web interface for ease of use.
