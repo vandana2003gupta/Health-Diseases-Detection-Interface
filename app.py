@@ -45,16 +45,6 @@ st.markdown("""
         font-size: 16px !important;
     }
 
-    /* Dropdown Button Styling */
-    .stSelectbox div[data-baseweb="select"] {
-        background-color: #FFFFFF !important;
-        color: white !important;
-        border: 2px solid #FF4B4B !important;
-        border-radius: 8px !important;
-        padding: 8px !important;
-        font-size: 16px !important;
-    }
-
     /* Dropdown Arrow & Display Text Styling */
     .stSelectbox div[role="button"] {
         background-color: #FFFFFF !important;
