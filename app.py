@@ -28,7 +28,7 @@ st.markdown("""
         color: #000000 !important;
     }
 
-    /* Input fields (text, select, text area) */
+    /* Input fields (text, select, textarea) */
     input, select, textarea {
         background-color: #ffffff !important;
         color: #1e1e1e !important;
@@ -38,7 +38,13 @@ st.markdown("""
         font-size: 16px !important;
     }
 
-    /* Streamlit widget containers for better alignment */
+    /* Input Labels to black */
+    label {
+        color: #000000 !important;
+        font-weight: 600;
+    }
+
+    /* Streamlit widget containers cleanup */
     .stTextInput > div > div,
     .stSelectbox > div > div,
     .stTextArea > div {
@@ -48,16 +54,16 @@ st.markdown("""
     /* Button Styling */
     .stButton>button {
         border-radius: 8px;
-        background-color: #FF4B4B;
-        color: white;
-        border: none;
+        background-color: #ffffff;
+        color: #FF4B4B;
+        border: 2px solid #FF4B4B;
         padding: 0.5rem 1rem;
         font-weight: bold;
         font-size: 16px;
     }
 
     .stButton>button:hover {
-        background-color: #e63946;
+        background-color: #FF4B4B;
         color: white;
     }
 
@@ -69,12 +75,15 @@ st.markdown("""
         font-weight: bold;
     }
 
-    /* Keep dropdown indicators visible on dark backgrounds */
+    /* Keep dropdown indicators visible and clean */
     .stSelectbox div[data-baseweb="select"] {
-        background-color: #fff !important;
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        border-radius: 8px !important;
+        border: 2px solid #FF4B4B !important;
     }
 
-    /* Fix input alignment issue in dark mode */
+    /* Remove unwanted box shadows */
     .stTextInput input, .stSelectbox select, .stTextArea textarea {
         box-shadow: none !important;
     }
