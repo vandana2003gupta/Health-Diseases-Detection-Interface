@@ -38,7 +38,7 @@ st.markdown("""
     /* Dropdown Arrow Styling Fix */
     .stSelectbox div[role="button"] {
         background-color: #FFFFFF !important;
-        color: black !important;
+        color: #1e1e1e !important;
     }
 
     /* Label Fixes (title text like “Sex”, etc.) */
