@@ -16,41 +16,108 @@ st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 # Forced Light Theme 
 st.markdown("""
     <style>
+    /* General Light Background and Text */
     body, .stApp {
         background-color: #FFFFFF !important;
-        color: #31333F !important;
+        color: #1e1e1e !important;
     }
-    [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
+
+    /* Sidebar and header cleanup */
+    [data-testid="stSidebar"], [data-testid="stHeader"], [data-testid="stToolbar"] {
         background-color: #F0F2F6 !important;
-        color: #31333F !important;
+        color: #000000 !important;
     }
-    .css-ffhzg2 {
-        background-color: #F0F2F6 !important;
-        color: black !important;
+
+    /* Input fields (text, select, text area) */
+    input, select, textarea {
+        background-color: #ffffff !important;
+        color: #1e1e1e !important;
+        border: 2px solid #FF4B4B !important;
+        border-radius: 8px !important;
+        padding: 8px !important;
+        font-size: 16px !important;
     }
-    .stTextInput > div > div > input, 
-    .stSelectbox > div > div>div,
-    .stTextArea textarea {
-        background-color: #FFFFFF !important;
-        color: black;
-        border: 1px solid #FF4B4B;
-        border-radius: 10px;
-        padding: 0.4rem;
+
+    /* Streamlit widget containers for better alignment */
+    .stTextInput > div > div,
+    .stSelectbox > div > div,
+    .stTextArea > div {
+        border: none !important;
     }
-    .stButton button {
-        border-radius: 10px;
+
+    /* Button Styling */
+    .stButton>button {
+        border-radius: 8px;
         background-color: #FF4B4B;
         color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+        font-size: 16px;
     }
-    .stButton button:hover {
+
+    .stButton>button:hover {
         background-color: #e63946;
+        color: white;
     }
+
+    /* Title Styling */
     h1 {
         text-align: center;
-        color: black;
+        color: #111 !important;
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    /* Keep dropdown indicators visible on dark backgrounds */
+    .stSelectbox div[data-baseweb="select"] {
+        background-color: #fff !important;
+    }
+
+    /* Fix input alignment issue in dark mode */
+    .stTextInput input, .stSelectbox select, .stTextArea textarea {
+        box-shadow: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
+
+# st.markdown("""
+#     <style>
+#     body, .stApp {
+#         background-color: #FFFFFF !important;
+#         color: #31333F !important;
+#     }
+#     [data-testid="stHeader"], [data-testid="stSidebar"], [data-testid="stToolbar"] {
+#         background-color: #F0F2F6 !important;
+#         color: #31333F !important;
+#     }
+#     .css-ffhzg2 {
+#         background-color: #F0F2F6 !important;
+#         color: black !important;
+#     }
+#     .stTextInput > div > div > input, 
+#     .stSelectbox > div > div>div,
+#     .stTextArea textarea {
+#         background-color: #FFFFFF !important;
+#         color: black;
+#         border: 1px solid #FF4B4B;
+#         border-radius: 10px;
+#         padding: 0.4rem;
+#     }
+#     .stButton button {
+#         border-radius: 10px;
+#         background-color: #FF4B4B;
+#         color: white;
+#     }
+#     .stButton button:hover {
+#         background-color: #e63946;
+#     }
+#     h1 {
+#         text-align: center;
+#         color: black;
+#     }
+#     </style>
+# """, unsafe_allow_html=True)
 
 # --- Background Setup ---
 def set_bg_from_local(image_file):
