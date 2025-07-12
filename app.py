@@ -28,7 +28,7 @@ st.markdown("""
     /* Input fields (text, select, text area) */
     .stTextInput input, 
     .stTextArea textarea,
-    .stTextInput > div> div> input,.stSelectbox > div> div>input,
+    .stTextInput > div> div> input,.stSelectbox > div>input,
     .stTextArea textarea
     {
         background-color: #ffffff !important;
