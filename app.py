@@ -256,7 +256,7 @@ elif selected == 'Autism Detection':
 elif selected == 'Yoga Posture Corrector':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>🧘‍♂️ Yoga Posture Corrector</h1>", unsafe_allow_html=True)
-    if st.button("Open Urban Yogi Pose Corrector"):
+    if st.button("Yogi Pose Corrector"):
         st.components.v1.iframe("https://urban-yogi-main.vercel.app", height=800, scrolling=True)
     st.image("Urban-Yogi-Main/img6.png", use_container_width=True)
 
