@@ -38,8 +38,8 @@ You can access the deployed app here:
 | **Heart Disease Detection** | Predicts heart disease with Logistic Regression/Random Forest model         |
 | **Parkinson’s Detection**   | Detects Parkinson’s Disease using SVC model                                 |
 | **Yoga Posture Corrector**  | Redirects users to an external posture correction tool                      |
-| **Report Analysis Bot**     | AI-powered bot that analyzes medical images and PDFs using Gemini Pro       |
-| **Feedback Section**        | Collects user ratings and feedback              
+| **Report Analysis Bot**     | AI-powered bot that analyzes medical images and PDFs using Generative Ai    |
+| **Feedback Section**        | Collects user ratings and feedback                                          |
 
 
 ## Technologies Used
