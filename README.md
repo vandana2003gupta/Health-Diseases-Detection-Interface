@@ -15,7 +15,7 @@ Currently, it offers detection for:
 
 It also provides:
 - **Yoga Posture Corrector (External Tool)**
-- **AI-powered Medical Report Analysis Bot** (using Gemini Pro)
+- **AI-powered Medical Report Analysis Bot** (using Gemini-1.5-Flash)
 - **Feedback Collection**
 
 ## Live Demo
