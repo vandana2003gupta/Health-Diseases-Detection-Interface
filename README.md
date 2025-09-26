@@ -102,6 +102,25 @@ streamlit run app.py
 
 
 
+sequenceDiagram
+    participant U as User
+    participant S as Streamlit App
+    participant M as ML Models
+    participant G as Gemini AI
+    participant F as Feedback DB
+
+    U->>S: Open app and select disease
+    S->>M: Send parameters for prediction
+    M-->>S: Return prediction
+    S-->>U: Show result
+    
+    U->>S: Upload medical report or image
+    S->>G: Send document for analysis
+    G-->>S: Return AI-driven insights
+    S-->>U: Show report analysis
+
+    U->>S: Submit feedback
+    S->>F: Store feedback in database
 
 
 
