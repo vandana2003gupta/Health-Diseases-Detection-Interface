@@ -98,7 +98,7 @@ streamlit run app.py
 
 ---
 
-## System Architecture
+## System Architecture and Workflow
 
 <img width="766" height="704" alt="image" src="https://github.com/user-attachments/assets/3bbcb6ff-b41a-4cf6-b332-2deeda64a6c4" />
 
@@ -144,11 +144,6 @@ streamlit run app.py
            +----------------------+
 ---
 
-## System Workflow
-
-<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/fd1c84dc-fc33-46bb-9073-b62a3af7d139" />
-
----
 
 ## Demo photographs
 
