@@ -100,62 +100,7 @@ streamlit run app.py
 
 ## System Workflow
 
-+-------------------------+
-|       User Layer        |
-+-------------------------+
-            |
-            v
-+-------------------------------+
-|   Streamlit Interface Layer   |
-+-------------------------------+
-            |
-            +--> Sidebar Navigation (Select Module)
-            |       |
-            |       +--> Disease Detection Input Form
-            |       |       |
-            |       |       v
-            |       |  +-----------------------+
-            |       |  |   Data Preprocessing  |
-            |       |  +-----------------------+
-            |       |              |
-            |       |              v
-            |       |  +-----------------------+
-            |       |  | Disease Prediction    |
-            |       |  |      Models           |
-            |       |  +-----------------------+
-            |       |              |
-            |       |              v
-            |       |  +-----------------------+
-            |       |  |   Prediction Output   |
-            |       |  +-----------------------+
-            |       |
-            |       +--> AI Report Analysis Upload
-            |       |       |
-            |       |       v
-            |       |  +-----------------------+
-            |       |  |  Report Analysis Bot  |
-            |       |  +-----------------------+
-            |       |              |
-            |       |              v
-            |       |  +-----------------------+
-            |       |  | Report Insights Output|
-            |       |  +-----------------------+
-            |       |
-            |       +--> Yoga Posture Correction
-            |               |
-            |               v
-            |        +-------------------------+
-            |        |  External Tool Redirect |
-            |        +-------------------------+
-            |
-            +--> Feedback Submission
-                    |
-                    v
-            +------------------+
-            |   Data Storage   |
-            +------------------+
-
-
+<img width="294" height="892" alt="image" src="https://github.com/user-attachments/assets/3e46e31e-5aee-4690-90e4-d0cb6a4bfa97" />
      
 
            +----------------------+
