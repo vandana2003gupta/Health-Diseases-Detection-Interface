@@ -18,9 +18,13 @@ It also provides:
 - **AI-powered Medical Report Analysis Bot** (using Gemini-1.5-Flash)
 - **Feedback Collection**
 
+---
+
 ## Live Demo
 You can access the deployed app here:  
 👉 [Health Disease Detection Interface (Streamlit Cloud)](https://health-disease-detection-interface.streamlit.app/)
+
+---
 
 ## Features
 - Easy-to-use web interface for disease prediction.
@@ -41,6 +45,8 @@ You can access the deployed app here:
 | **Report Analysis Bot**     | AI-powered bot that analyzes medical images and PDFs using Generative Ai    |
 | **Feedback Section**        | Collects user ratings and feedback                                          |
 
+---
+
 
 ## Technologies Used
 
@@ -58,6 +64,8 @@ You can access the deployed app here:
 | **Streamlit Option Menu**   | Sidebar navigation menu                   |
 | **Custom CSS & Images**     | Styling and UI Enhancements               |
 
+---
+
 
 ## Models Used
 
@@ -68,6 +76,7 @@ You can access the deployed app here:
 | **Parkinson’s Detection**   | Classification Model | Support Vector Classifier (SVC)    |
 | **Autism Detection**        | - (Under Development)| -                                  |
 
+---
 
 
 ## Local Setup Instructions
@@ -87,6 +96,8 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+---
+
 ## Demo photographs
 
 <img width="1917" height="1027" alt="image" src="https://github.com/user-attachments/assets/e0260ecd-00af-45a4-bf9e-5c428d3c337d" />
@@ -102,6 +113,42 @@ streamlit run app.py
 
 ---
 
+## System Workflow
+
+[User Layer]
+   |
+   v
+[Streamlit Interface Layer]
+   |
+   +--> Sidebar Navigation (Select Module)
+   |      |
+   |      +--> Disease Detection Input Form
+   |      |      |
+   |      |      v
+   |      |  [Data Preprocessing] 
+   |      |        ------->
+   |      |  [Disease Prediction Models] 
+   |      |        ------->
+   |      |  [Prediction Output]
+   |      |
+   |      +--> AI Report Analysis Upload
+   |      |      |
+   |      |      v
+   |      |  [Report Analysis Bot] 
+   |      |        ------->
+   |      |  [Report Insights Output]
+   |      |
+   |      +--> Yoga Posture Correction
+   |             |
+   |             v
+   |       [External Tool Redirect]
+   |
+   +--> Feedback Submission
+          |
+          v
+     [Data Storage]
+
+     
 
            +----------------------+
            |      User Layer      |
@@ -143,38 +190,8 @@ streamlit run app.py
            | - External Redirect  |
            +--------------------+
 
----
 
-## System Workflow
-
-
-[User Layer]
-   |
-   v
-[Streamlit Interface Layer]
-   |
-   +--> Sidebar Navigation (Select Module)
-   |      |
-   |      +--> Disease Detection Input Form
-   |      |      |
-   |      |      v
-   |      |  [Data Preprocessing] --> [Disease Prediction Models] --> [Prediction Output]
-   |      |
-   |      +--> AI Report Analysis Upload
-   |      |      |
-   |      |      v
-   |      |  [Report Analysis Bot] --> [Report Insights Output]
-   |      |
-   |      +--> Yoga Posture Correction
-   |             |
-   |             v
-   |       [External Tool Redirect]
-   |
-   +--> Feedback Submission
-          |
-          v
-     [Data Storage]
-
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/fd1c84dc-fc33-46bb-9073-b62a3af7d139" />
 
 
 
