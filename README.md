@@ -101,6 +101,45 @@ streamlit run app.py
 <img width="1919" height="987" alt="image" src="https://github.com/user-attachments/assets/a8bade1f-3380-4733-ae0f-cea95bfd8183" />
 
 
+           +----------------------+
+           |      User Layer      |
+           |----------------------|
+           | - Web Browser        |
+           | - Inputs & Feedback  |
+           +----------+-----------+
+                      |
+                      v
+           +----------------------+
+           |  Streamlit Interface |
+           |----------------------|
+           | - Sidebar Navigation |
+           | - Forms & Pages      |
+           | - Custom Theme       |
+           +----------+-----------+
+                      |
+                      v
+        +-----------------------------+
+        |       Backend Layer         |
+        |-----------------------------|
+        | - Input Processing          |
+        |   (Pandas, NumPy, PyMuPDF,  |
+        |    PIL)                     |
+        | - Disease Models            |
+        |   (RF, LR, SVC)             |
+        | - AI Report Analysis Bot    |
+        |   (Gemini-1.5-Flash)        |
+        | - External Tools Interface  |
+        +----------+-----------------+
+                      |
+                      v
+           +----------------------+
+           |    Output Layer      |
+           |----------------------|
+           | - Predictions        |
+           | - Medical Insights   |
+           | - Feedback Storage   |
+           | - External Redirect  |
+           +--------------------+
 
 
 
