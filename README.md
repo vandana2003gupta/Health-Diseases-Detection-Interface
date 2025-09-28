@@ -100,8 +100,8 @@ streamlit run app.py
 
 ## System Workflow
 
-<img width="294" height="892" alt="image" src="https://github.com/user-attachments/assets/3e46e31e-5aee-4690-90e4-d0cb6a4bfa97" />
-     
+<img width="766" height="704" alt="image" src="https://github.com/user-attachments/assets/3bbcb6ff-b41a-4cf6-b332-2deeda64a6c4" />
+
 
            +----------------------+
            |      User Layer      |
@@ -131,7 +131,7 @@ streamlit run app.py
         | - AI Report Analysis Bot    |
         |   (Gemini-1.5-Flash)        |
         | - External Tools Interface  |
-        +----------+-----------------+
+        +----------+------------------+
                       |
                       v
            +----------------------+
@@ -141,36 +141,7 @@ streamlit run app.py
            | - Medical Insights   |
            | - Feedback Storage   |
            | - External Redirect  |
-           +--------------------+
-
-
-[User Layer]
-   |
-   v
-[Streamlit Interface Layer]
-   |
-   +--> Sidebar Navigation (Select Module)
-   |      |
-   |      +--> Disease Detection Input Form
-   |      |      |
-   |      |      v
-   |      |  [Data Preprocessing] --> [Disease Prediction Models] --> [Prediction Output]
-   |      |
-   |      +--> AI Report Analysis Upload
-   |      |      |
-   |      |      v
-   |      |  [Report Analysis Bot] --> [Report Insights Output]
-   |      |
-   |      +--> Yoga Posture Correction
-   |             |
-   |             v
-   |       [External Tool Redirect]
-   |
-   +--> Feedback Submission
-          |
-          v
-     [Data Storage]
-
+           +----------------------+
 
 <img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/fd1c84dc-fc33-46bb-9073-b62a3af7d139" />
 
