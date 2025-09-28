@@ -100,38 +100,18 @@ streamlit run app.py
 
 ## System Workflow
 
-[User Layer]
-   |
-   v
-[Streamlit Interface Layer]
-   |
-   +--> Sidebar Navigation (Select Module)
-   |      |
-   |      +--> Disease Detection Input Form
-   |      |      |
-   |      |      v
-   |      |  [Data Preprocessing] 
-   |      |        ------->
-   |      |  [Disease Prediction Models] 
-   |      |        ------->
-   |      |  [Prediction Output]
-   |      |
-   |      +--> AI Report Analysis Upload
-   |      |      |
-   |      |      v
-   |      |  [Report Analysis Bot] 
-   |      |        ------->
-   |      |  [Report Insights Output]
-   |      |
-   |      +--> Yoga Posture Correction
-   |             |
-   |             v
-   |       [External Tool Redirect]
-   |
-   +--> Feedback Submission
-          |
-          v
-     [Data Storage]
+flowchart TD
+  U[User Layer] --> S[Streamlit Interface Layer]
+
+  S --> |Sidebar Navigation| D[ Disease Detection Input Form ]
+  D --> DP[Data Preprocessing] --> M[Disease Prediction Models] --> O[Prediction Output]
+
+  S --> |AI Report Analysis Upload| RAB[Report Analysis Bot] --> ROI[Report Insights Output]
+
+  S --> |Yoga Posture Correction| Y[External Tool Redirect]
+
+  S --> |Feedback Submission| F[Data Storage]
+
 
      
 
