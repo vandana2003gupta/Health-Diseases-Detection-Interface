@@ -100,6 +100,8 @@ streamlit run app.py
 <img width="1919" height="993" alt="image" src="https://github.com/user-attachments/assets/5beb0078-be87-4a1e-a34d-d2a7f6c15905" />
 <img width="1919" height="987" alt="image" src="https://github.com/user-attachments/assets/a8bade1f-3380-4733-ae0f-cea95bfd8183" />
 
+---
+
 
            +----------------------+
            |      User Layer      |
@@ -141,7 +143,37 @@ streamlit run app.py
            | - External Redirect  |
            +--------------------+
 
+---
 
+## System Workflow
+
+
+[User Layer]
+   |
+   v
+[Streamlit Interface Layer]
+   |
+   +--> Sidebar Navigation (Select Module)
+   |      |
+   |      +--> Disease Detection Input Form
+   |      |      |
+   |      |      v
+   |      |  [Data Preprocessing] --> [Disease Prediction Models] --> [Prediction Output]
+   |      |
+   |      +--> AI Report Analysis Upload
+   |      |      |
+   |      |      v
+   |      |  [Report Analysis Bot] --> [Report Insights Output]
+   |      |
+   |      +--> Yoga Posture Correction
+   |             |
+   |             v
+   |       [External Tool Redirect]
+   |
+   +--> Feedback Submission
+          |
+          v
+     [Data Storage]
 
 
 
