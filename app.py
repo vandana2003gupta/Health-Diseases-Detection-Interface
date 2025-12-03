@@ -229,7 +229,7 @@ elif selected == 'Report Analysis Bot':
     # Question input
     question = st.text_input("Ask a question about the uploaded image or PDF")
 
-    if st.button("🔍 Ask Gemini") and question:
+    if st.button("Ask Bot") and question:
         try:
             model = genai.GenerativeModel("gemini-1.5-flash")
 
