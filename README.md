@@ -4,7 +4,8 @@ Deployed Project Link - https://disease0detection.streamlit.app/
 
 ![image](https://github.com/user-attachments/assets/daa30f66-b7e2-421e-9714-5e84a3948590)
 
-![image](https://github.com/user-attachments/assets/2c7c40a9-ccd5-4408-bba4-82f97a439cae)
+<img width="1910" height="922" alt="image" src="https://github.com/user-attachments/assets/e262b2dd-b374-4654-b627-24ce925c821d" />
+
 
 ![image](https://github.com/user-attachments/assets/05bad0c4-7704-4209-9059-900b39c1a207)
 
