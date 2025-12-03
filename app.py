@@ -78,7 +78,7 @@ if selected == 'Welcome':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Health Disease Prediction Interface</h1>", unsafe_allow_html=True)
     st.write("This application detects diseases like Diabetes, Heart, and Parkinson's using ML, and includes medical report, rash analysis bot & yoga assistance.")
-    st.image("Img1.webp", use_container_width=True)
+    st.image("Img1.png", use_container_width=True)
 
 
 elif selected == 'Autism Prediction':
