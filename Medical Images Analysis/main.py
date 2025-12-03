@@ -17,7 +17,7 @@ image_path = "rash1.jpeg"
 img = Image.open(image_path)
 
 
-model = genai.GenerativeModel("models/gemini-1.5-flash-8b")
+model = genai.GenerativeModel("models/gemini-2.0-flash-lite-preview")
 chat = model.start_chat(history=[])
 
 print("Medical Image & Report Analysis Chatbot (Type 'exit' to quit)\n")

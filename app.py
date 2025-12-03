@@ -231,7 +231,7 @@ elif selected == 'Report Analysis Bot':
 
     if st.button("Ask Bot") and question:
         try:
-            model = genai.GenerativeModel("gemini-1.5-flash-8b")
+            model = genai.GenerativeModel("gemini-2.0-flash-lite-preview")
 
             content_parts = []
             if st.session_state.gemini_image_bytes:
