@@ -9,6 +9,7 @@ import google.generativeai as genai
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
+
 st.set_page_config(page_title="Health Care Analyzer", layout="wide")
 
 def set_bg_from_local(image_file):
