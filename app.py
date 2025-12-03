@@ -223,10 +223,10 @@ elif selected == 'Report Analysis Bot':
                 pdf_text += page.get_text()
             doc.close()
             st.session_state.gemini_pdf_text = pdf_text
-            st.text_area("📄 Extracted PDF Text", pdf_text, height=200)
+            st.text_area(" Extracted PDF Text", pdf_text, height=200)
 
     # Question input
-    question = st.text_input("💬 Ask a question about the uploaded image or PDF")
+    question = st.text_input("Ask a question about the uploaded image or PDF")
 
     if st.button("🔍 Ask Gemini") and question:
         try:
@@ -240,7 +240,7 @@ elif selected == 'Report Analysis Bot':
 
             content_parts.append({"text": question})
 
-            with st.spinner("🧠 Gemini is thinking..."):
+            with st.spinner("Bot is thinking..."):
                 response = model.generate_content(content_parts)
                 reply = response.text
 
