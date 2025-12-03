@@ -91,7 +91,7 @@ elif selected == 'Autism Prediction':
 
 elif selected == 'Diabetes Prediction':
     set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>Diabetes Detection using ML</h1>", unsafe_allow_html=True)
+    st.markdown("<h1>Diabetes Prediction using ML</h1>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1: pregnancies = st.text_input('Number of Pregnancies', '0')
     with col2: glucose = st.text_input('Glucose Level', '120')
