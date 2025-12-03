@@ -189,7 +189,7 @@ elif selected == 'Report Analysis Bot':
     import fitz  # PyMuPDF
 
     set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>📄 Medical Report & Image Chatbot</h1>", unsafe_allow_html=True)
+    st.markdown("<h1> Medical Report & Image Chatbot</h1>", unsafe_allow_html=True)
 
     genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
@@ -201,14 +201,14 @@ elif selected == 'Report Analysis Bot':
         st.session_state.gemini_history = []
 
     # File uploader (image or PDF)
-    uploaded_file = st.file_uploader("📤 Upload a medical image or report (PDF)", type=["jpg", "jpeg", "png", "pdf"])
+    uploaded_file = st.file_uploader("Upload a medical image or report (PDF)", type=["jpg", "jpeg", "png", "pdf"])
 
     if uploaded_file:
         file_type = uploaded_file.type
 
         # image upload 
         if "image" in file_type:
-            st.image(uploaded_file, caption="📍 Uploaded Medical Image", use_column_width=True)
+            st.image(uploaded_file, caption="Uploaded Medical Image or report", use_column_width=True)
             image = Image.open(uploaded_file).convert("RGB")
             image_bytes_io = io.BytesIO()
             image.save(image_bytes_io, format="JPEG")
