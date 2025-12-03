@@ -78,8 +78,8 @@ with st.sidebar:
 if selected == 'Welcome':
     set_bg_from_local('bg.jpeg')
     st.markdown("<h1>Health Disease Prediction Interface </h1>", unsafe_allow_html=True)
-    st.write("This application predicts diseases like Diabetes, Heart, and Parkinson's using ML, and includes medical report, rash analysis bot & yoga assistance.")
-    st.image("Img1.png", use_container_width=True)
+    st.write("This application predicts diseases like Diabetes, Heart, and Parkinson's using ML algorithm, and includes medical report, rash analysis bot & yoga assistance.")
+    st.image("Img.png", use_container_width=True)
 
 
 elif selected == 'Autism Prediction':
@@ -91,7 +91,7 @@ elif selected == 'Autism Prediction':
 
 elif selected == 'Diabetes Prediction':
     set_bg_from_local('bg.jpeg')
-    st.markdown("<h1>Diabetes Prediction using ML</h1>", unsafe_allow_html=True)
+    st.markdown("<h1> Diabetes Prediction using ML</h1>", unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1: pregnancies = st.text_input('Number of Pregnancies', '0')
     with col2: glucose = st.text_input('Glucose Level', '120')
