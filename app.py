@@ -19,11 +19,15 @@ def set_bg_from_local(image_file):
         f"""
         <style>
         .stApp {{
+        
             background-image: url("data:image/jpeg;base64,{encoded}");
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
         }}
+        .background-image {{
+        background-size: 50%;}}
+
         </style>
         """,
         unsafe_allow_html=True
