@@ -4,6 +4,9 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 ![image](https://github.com/user-attachments/assets/daa30f66-b7e2-421e-9714-5e84a3948590)
 
+## <img width="1919" height="920" alt="image" src="https://github.com/user-attachments/assets/e7d200b5-8445-45f6-80e3-f058b23b74fc" />
+
+
 # Diseases
 
 # Diabetes Prediction 
