@@ -12,27 +12,7 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 <img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/f769da06-62ad-4151-aa14-76fbb890376f" />
 
- START
-    ↓
- Load Dataset (195 rows)
-    ↓
- Drop “name” Column
-    ↓
- EDA (Plots & Correlations)
-    ↓
- Split Data (Train/Test)
-    ↓
- Standardize Features (StandardScaler)
-    ↓
- Train SVM (RBF Kernel)
-    ↓
- Evaluate Model (Accuracy, F1, ROC)
-    ↓
- Save Model (.pkl)
-    ↓
- Deploy (Streamlit)
-    ↓
-   END
+<img width="560" height="396" alt="image" src="https://github.com/user-attachments/assets/0219ae82-0c66-4488-80c2-fee4515789b1" />
 
 
 <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/55bece4c-d699-49aa-aada-693db9a90120" />
