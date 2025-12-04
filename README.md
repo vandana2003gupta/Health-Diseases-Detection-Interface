@@ -12,11 +12,6 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 <img width="838" height="615" alt="image" src="https://github.com/user-attachments/assets/2470f286-dad6-453d-bd3f-eea7938aca59" />
 
-
-<img width="734" height="753" alt="image" src="https://github.com/user-attachments/assets/cc3f3b61-e95f-4840-8604-a1f6c43eae93" />
-
-
-
 <img width="1919" height="919" alt="image" src="https://github.com/user-attachments/assets/b6a7edaa-8e31-496a-99a1-fe2f177bf3a2" />
 
 <img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/f769da06-62ad-4151-aa14-76fbb890376f" />
