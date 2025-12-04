@@ -24,9 +24,9 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 <img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/f769da06-62ad-4151-aa14-76fbb890376f" />
 
-
-
 <img width="1919" height="917" alt="image" src="https://github.com/user-attachments/assets/55bece4c-d699-49aa-aada-693db9a90120" />
+
+# Medical Report and Image analysis Chatbot
 
 <img width="1919" height="913" alt="image" src="https://github.com/user-attachments/assets/41802a56-5940-44bc-b9b9-7c7bdbd5b780" />
 
