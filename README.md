@@ -8,6 +8,11 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 <img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/d970183d-ac61-4552-b3d6-fcd773436eb0" />
 
+# Parkinons 
+
+<img width="1024" height="1536" alt="image" src="https://github.com/user-attachments/assets/d8daec9d-3a31-401e-9bed-ca0c38345b9e" />
+
+
 <img width="1919" height="919" alt="image" src="https://github.com/user-attachments/assets/b6a7edaa-8e31-496a-99a1-fe2f177bf3a2" />
 
 <img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/f769da06-62ad-4151-aa14-76fbb890376f" />
