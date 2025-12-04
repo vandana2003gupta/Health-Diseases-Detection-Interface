@@ -6,9 +6,11 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 # Diseases
 
+# Diabetes Prediction 
+
 <img width="1901" height="903" alt="image" src="https://github.com/user-attachments/assets/991a03da-b270-4748-9c16-ab254b5d2013" />
 
-###
+# Heart Disease Prediction
 
 <img width="1919" height="938" alt="image" src="https://github.com/user-attachments/assets/d970183d-ac61-4552-b3d6-fcd773436eb0" />
 
@@ -30,6 +32,5 @@ Deployed Project Link - https://health-disease-detection-interface.streamlit.app
 
 <img width="1919" height="913" alt="image" src="https://github.com/user-attachments/assets/41802a56-5940-44bc-b9b9-7c7bdbd5b780" />
 
-<img width="2166" height="2023" alt="image" src="https://github.com/user-attachments/assets/5d5d1afa-651f-4aa0-9972-e1120b5b6438" />
 
 
